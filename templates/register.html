@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Usuário</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Registrar Novo Usuário</h2>
+            <form action="{{ url_for('register') }}" method="post">
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
+                <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <input type="text" id="endereco" name="endereco" placeholder="Endereço" required>
+                <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                <input type="text" id="cidade" name="cidade" placeholder="Cidade" required>
+                <textarea id="descricao" name="descricao" placeholder="Descrição da Situação" required></textarea>
+                <select id="categoria_perda" name="categoria_perda" required>
+                    <option value="">Selecione a Categoria de Perda</option>
+                    <option value="casa_destruida">Casa Destruida</option>
+                    <option value="eletrodomesticos">Eletrodomésticos</option>
+                    <option value="cama">Cama</option>
+                    <option value="roupas_calçados">Roupas e Calçados</option>
+                    <option value="documentos_pessoais">Documentos Pessoais</option>
+                    <option value="veiculos">Veículos</option>
+                </select>
+                <input type="text" id="pix" name="pix" placeholder="Chave PIX" required>
+                <input type="password" id="senha" name="senha" placeholder="Senha" required>
+                <div class="button-container">
+                    <button type="submit">Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

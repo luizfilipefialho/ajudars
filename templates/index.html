@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="mb-3">Bem-vindo ao Sistema de Doações para o Rio Grande do Sul</h1>
+        <p class="lead">
+            Este site foi criado para facilitar doações direcionadas a pessoas que sofreram prejuízos no Rio Grande do Sul.
+            Aqui, você pode registrar sua solicitação de ajuda ou contribuir diretamente com quem precisa, garantindo que
+            o auxílio seja entregue de forma eficiente e segura. Ajude-nos a fazer a diferença em momentos críticos!
+        </p>
+        <a href="{{ url_for('register') }}" class="btn btn-primary mb-3">Registrar Novo Usuário</a>
+        <a href="{{ url_for('login') }}" class="btn btn-secondary mb-3">Login</a>
+        <h2 class="mb-3">Solicitações Registradas</h2>
+        <div class="row text-center font-weight-bold mb-2">
+            <div class="col">Nome</div>
+            <div class="col">Bairro, Cidade</div>
+            <div class="col">Categoria de Perda</div>
+            <div class="col">Chave PIX</div>
+        </div>
+        <div>
+            {% for user in users %}
+            <div class="card bg-light d-flex flex-row justify-content-between">
+                <div class="column">{{ user.nome }}</div>
+                <div class="column">{{ user.bairro }}, {{ user.cidade }}</div>
+                <div class="column category {{ user.categoria_perda.replace(' ', '_').lower() }}">
+                    {{ user.categoria_perda }}
+                </div>
+                <div class="column">
+                    <a href="#" class="pix-link">{{ user.pix }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
