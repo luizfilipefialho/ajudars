@@ -56,6 +56,17 @@ Este é um aplicativo Flask desenvolvido para facilitar doações para as pessoa
 
 6. Acesse o aplicativo em `http://127.0.0.1:5000/` em seu navegador.
 
+## Testes
+
+A suíte usa [pytest](https://docs.pytest.org/) e roda contra um SQLite em memória, sem precisar de `.env` nem de banco configurado.
+
+```bash
+pip install -r requirements.txt -r requirements-dev.txt
+python -m pytest
+```
+
+Os testes ficam em `tests/` e cobrem as rotas (`/`, `/register`, `/login`, `/logout`, `/update`) e o modelo `User`.
+
 ## Como Contribuir
 
 Estamos abertos a contribuições! Para contribuir, por favor:

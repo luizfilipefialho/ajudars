@@ -84,7 +84,7 @@ def login():
         email = request.form['email']
         senha = request.form['senha']
         user = User.query.filter_by(email=email).first()
-        if user and check_password_hash(user.password, senha):
+        if user and check_password_hash(user.senha, senha):
             login_user(user)
             return redirect(url_for('update'))
         else:
